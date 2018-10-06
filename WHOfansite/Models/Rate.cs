@@ -7,7 +7,7 @@ namespace WHOfansite.Models
 {
     public class Rate
     {
-        public User Rater { get; set; }
+        public User UserName { get; set; }
         public int Rating { get; set; }
         public SiteSubmissions RatedStory { get; set; }
     }
