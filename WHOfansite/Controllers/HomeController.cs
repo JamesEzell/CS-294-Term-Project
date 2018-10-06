@@ -10,6 +10,21 @@ namespace WHOfansite.Controllers
 {
     public class HomeController : Controller
     {
+        SiteSubmissions story;
+        public HomeController()
+        {
+            if (Repository.Submissions.Count == 0)  
+            {
+                story = new SiteSubmissions()
+                {
+                    Title = "The Caves of Androzani",
+                    Date = new DateTime(2018, 10, 6),
+                    Story = "Start your story here"
+                };
+                Repository.AddSubmission(story);
+            }
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -24,13 +39,26 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            ViewData["Message"] = "A page with a form where users can enter stories.";
-
-            return View();
+            List<SiteSubmissions> submissions = Repository.Submissions;
+            return View(submissions);
         }
 
         [HttpGet]
         public ViewResult StoriesForm() => View();
+
+        [HttpPost]
+        public RedirectToActionResult AddSubmission(User username, string title, DateTime date, SiteSubmissions story)
+        {
+            story = new SiteSubmissions();
+            story.UserName = username;
+            story.Date = date;
+            story.Title = title;
+            
+            Repository.AddSubmission(story);  
+
+
+            return RedirectToAction("Index");
+        }
         
 
         public IActionResult Privacy()

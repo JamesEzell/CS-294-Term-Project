@@ -8,11 +8,11 @@ namespace WHOfansite.Models
 {
     public class SiteSubmissions
     {
-        [Required(ErrorMessage = "Please enter your name")]
+        [Required(ErrorMessage = "Please enter your username")]
         public User UserName { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
