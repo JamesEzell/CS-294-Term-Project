@@ -43,7 +43,7 @@ namespace WHOfansite.Controllers
             return View(submissions);
         }
 
-        [HttpGet]
+        [HttpGet] //responding to a get request, will display messages
         public ViewResult StoriesForm() => View();
 
         [HttpPost]
