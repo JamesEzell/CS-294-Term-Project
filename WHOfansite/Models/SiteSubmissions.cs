@@ -8,6 +8,10 @@ namespace WHOfansite.Models
 {
     public class SiteSubmissions
     {
+        private List<Comment> comments = new List<Comment>();
+        private List<Rate> ratings = new List<Rate>();
+
+
         //[Required(ErrorMessage = "Please enter your username")]
         public User UserName { get; set; }
 
