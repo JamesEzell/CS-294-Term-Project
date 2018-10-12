@@ -21,13 +21,38 @@ namespace WHOfansite.Controllers
                     Date = new DateTime(2018, 10, 6),
                     Story = "Start your story here"
                 };
+                Comment comment = new Comment() { CommentText = "The best Doctor Who story ever!" };
+                story.Comments.Add(comment);
                 Repository.AddSubmission(story);
+
+                story = new SiteSubmissions()
+                {
+                    Title = "Remembrance of the Daleks",
+                    Date = new DateTime(2018, 10, 6),
+                    Story = "Start your story here"
+                };
+                Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+                story.Comments.Add(comment);
+                Repository.AddSubmission(story);
+
+                story = new SiteSubmissions()
+                {
+                    Title = "Robot",
+                    Date = new DateTime(2018, 10, 6),
+                    Story = "Start your story here"
+                };
+                Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+                story.Comments.Add(comment);
+                Repository.AddSubmission(story);
+
             }
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<SiteSubmissions> siteSubmissions = Repository.Submissions;
+            siteSubmissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
+            return View(siteSubmissions);
         }
 
         public IActionResult History()
@@ -47,7 +72,7 @@ namespace WHOfansite.Controllers
         public ViewResult StoriesForm() => View();
 
         [HttpPost]
-        public RedirectToActionResult AddSubmission(User username, string title, DateTime date, SiteSubmissions story)
+        public RedirectToActionResult AddSubmission(User username, string title, DateTime date, SiteSubmissions submissions)
         {
             story = new SiteSubmissions();
             story.UserName = username;

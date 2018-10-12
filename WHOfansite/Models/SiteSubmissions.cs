@@ -8,10 +8,9 @@ namespace WHOfansite.Models
 {
     public class SiteSubmissions
     {
+        private List<SiteSubmissions> siteSubmissions = new List<SiteSubmissions>();
         private List<Comment> comments = new List<Comment>();
-        private List<Rate> ratings = new List<Rate>();
-
-
+        
         //[Required(ErrorMessage = "Please enter your username")]
         public User UserName { get; set; }
 
@@ -23,5 +22,9 @@ namespace WHOfansite.Models
 
         [Required(ErrorMessage = "Please enter a story(It IS why you're here after all)!")]
         public string Story { get; set; }
+
+        public List<Comment> Comments { get { return comments; } }
+        public List<SiteSubmissions> Sitesubmissions { get { return siteSubmissions; } }
+
     }
 }
