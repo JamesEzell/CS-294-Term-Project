@@ -13,7 +13,7 @@ namespace WHOfansite.Models
 
 
         //[Required(ErrorMessage = "Please enter your username")]
-        public User UserName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }
