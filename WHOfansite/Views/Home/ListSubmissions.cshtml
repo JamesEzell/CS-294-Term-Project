@@ -28,7 +28,7 @@
                 @foreach (WHOfansite.Models.SiteSubmissions r in Model)
                 {
                     <tr>
-                        <td>@r.UserName</td>
+                        <td>@r.Name</td>
                         <td>@r.Date</td>
                         <td>@r.Title</td>
                         <td>@r.Story</td>
@@ -37,6 +37,8 @@
             </tbody>
         </table>
     </div>
+    <a href="StoriesForm">Add your story</a><br />
+    <a href="/Home">Home</a>
 </body>
 </html>
 

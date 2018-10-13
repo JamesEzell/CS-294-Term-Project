@@ -72,10 +72,10 @@ namespace WHOfansite.Controllers
         public ViewResult StoriesForm() => View();
 
         [HttpPost]
-        public RedirectToActionResult AddSubmission(User username, string title, DateTime date, SiteSubmissions submissions)
+        public RedirectToActionResult AddSubmission(string name, string title, DateTime date, SiteSubmissions submissions)
         {
             story = new SiteSubmissions();
-            story.UserName = username;
+            story.Name = name;
             story.Date = date;
             story.Title = title;
             

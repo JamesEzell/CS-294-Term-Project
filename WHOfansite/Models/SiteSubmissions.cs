@@ -11,8 +11,8 @@ namespace WHOfansite.Models
         private List<SiteSubmissions> siteSubmissions = new List<SiteSubmissions>();
         private List<Comment> comments = new List<Comment>();
         
-        //[Required(ErrorMessage = "Please enter your username")]
-        public User UserName { get; set; }
+        [Required(ErrorMessage = "Please enter your username")]
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }
