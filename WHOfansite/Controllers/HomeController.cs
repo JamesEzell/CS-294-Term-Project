@@ -71,21 +71,7 @@ namespace WHOfansite.Controllers
         [HttpGet] //responding to a get request, will display messages
         public ViewResult StoriesForm() => View();
 
-        [HttpPost]
-        public RedirectToActionResult AddSubmission(string name, string title, DateTime date, SiteSubmissions submissions)
-        {
-            story = new SiteSubmissions();
-            story.Name = name;
-            story.Date = date;
-            story.Title = title;
-            
-            Repository.AddSubmission(story);  
-
-
-            return RedirectToAction("Index");
-        }
         
-
         public IActionResult Privacy()
         {
             ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
