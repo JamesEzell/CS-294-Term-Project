@@ -9,6 +9,7 @@ namespace WHOfansite.Controllers
 {
     public class SourcesController : Controller
     {
+        //add these lists to the repository
         Book books;
         Links links;
         
