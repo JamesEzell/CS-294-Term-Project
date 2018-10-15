@@ -1,11 +1,29 @@
-﻿
+﻿@model WHOfansite.Models.Links
+
 @{
     ViewData["Title"] = "Links";
 }
 
 <h2>@ViewData["Title"]</h2>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Links to Online Media</title>
+</head>
+<body>
+    List of links:
+    @foreach (Links links in Model)
+    {
+        @links.PageTitle; <br />
+        @links.PageUrl; <br />
+        @links.PageInfo; <br />
+        <br />
 
-<p>Use this page to navigate to online media sources about this person or persons</p>
+    }
+    <br>
+    <a href="/Home">Home</a>
+</body>
+</html>
 
-<a href="/Home">Home</a>
+

@@ -9,7 +9,8 @@ namespace WHOfansite.Controllers
 {
     public class SourcesController : Controller
     {
-        Book book;
+        Book books;
+        Links links;
         
         public SourcesController()
         {
@@ -27,7 +28,22 @@ namespace WHOfansite.Controllers
                 Title = "Head Games",
                 PubDate = new DateTime(1997, 1, 1)
             });
-            
+
+            List<Links> links = new List<Links>();
+            links.Add(new Links()
+            {
+                PageTitle = "The TARDIS Library",
+                PageUrl = "http://www.timelash.com/tardis/",
+                PageInfo = "Online hub for information and sales of Doctor Who merchandise in very medium imaginable",
+            });
+
+            links.Add(new Links()
+            {
+                PageTitle = "List of Doctor Who Serials from 1963-1989",
+                PageUrl = "https://en.wikipedia.org/wiki/List_of_Doctor_Who_episodes_(1963%E2%80%931989)",
+                PageInfo = "Every serial from the show's first run, because it's the only run that matters",
+            });
+
         }
 
         public IActionResult Books()
@@ -39,13 +55,16 @@ namespace WHOfansite.Controllers
             return View(books);
         }
 
-        public IActionResult Links()
+        public IActionResult OnlineLinks()
         {
             ViewData["Message"] = "Links to online media about a person or persons";
 
-            return View();
-        }
+            List<Links> pageLinks = Links.PageLinks;
+            pageLinks.Sort((b1, b2) => b1.PageTitle.CompareTo(b2.PageTitle));
+            return View(pageLinks);
 
+        }
+        /*
         [HttpPost]
         public RedirectToActionResult AddBook(string title,
                                               string author, string pubDate)
@@ -56,6 +75,6 @@ namespace WHOfansite.Controllers
             book.PubDate = DateTime.Parse(pubDate);
             
             return RedirectToAction("Books");
-        }
+        }*/
     }
 }
