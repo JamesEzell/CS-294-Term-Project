@@ -8,7 +8,6 @@ namespace WHOfansite.Models
 {
     public class Links
     {
-
         public string PageTitle { get; set; }
         public string PageUrl { get; set; }
         public string PageInfo { get; set; }
