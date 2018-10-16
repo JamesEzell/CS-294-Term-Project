@@ -1,27 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Stories";
+﻿@model IEnumerable<WHOfansite.Models.Story>
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
-
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-
+<!--add a foreach loop for comments!-->>
 
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Stories</title>
+    <title>Submissions So Far</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <p>
-        These are user submitted stories. Why not add your own?
-    </p>
-    <p>
-        Tell us about your favorite story <a asp-action="StoriesForm">now!</a>
-    </p>
+    <div class="panel-body">
+        <h2>Here is the list of people who have submitted stories</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Story</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (WHOfansite.Models.Story r in Model)
+                {
+                    <tr>
+                        <td>@r.Name</td>
+                        <td>@r.Date</td>
+                        <td>@r.Title</td>
+                        <td>@r.StoryText</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="StoriesForm">Add your story</a><br />
+    <a href="/Home">Home</a>
 </body>
 </html>
+
 
 

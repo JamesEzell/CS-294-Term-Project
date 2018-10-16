@@ -10,36 +10,36 @@ namespace WHOfansite.Controllers
 {
     public class HomeController : Controller
     {
-        SiteSubmissions story;
+        Story story;
         public HomeController()
         {
             if (Repository.Submissions.Count == 0)  
             {
-                story = new SiteSubmissions()
+                story = new Story()
                 {
                     Title = "The Caves of Androzani",
                     Date = new DateTime(2018, 10, 6),
-                    Story = "Start your story here"
+                    StoryText = "Start your story here"
                 };
                 Comment comment = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment);
                 Repository.AddSubmission(story);
 
-                story = new SiteSubmissions()
+                story = new Story()
                 {
                     Title = "Remembrance of the Daleks",
                     Date = new DateTime(2018, 10, 6),
-                    Story = "Start your story here"
+                    StoryText = "Start your story here"
                 };
                 Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment);
                 Repository.AddSubmission(story);
 
-                story = new SiteSubmissions()
+                story = new Story()
                 {
                     Title = "Robot",
                     Date = new DateTime(2018, 10, 6),
-                    Story = "Start your story here"
+                    StoryText = "Start your story here"
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment);
@@ -50,7 +50,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Index()
         {
-            List<SiteSubmissions> siteSubmissions = Repository.Submissions;
+            List<Story> siteSubmissions = Repository.Submissions;
             siteSubmissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(siteSubmissions);
         }
@@ -64,7 +64,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<SiteSubmissions> submissions = Repository.Submissions;
+            List<Story> submissions = Repository.Submissions;
             return View(submissions);
         }
 
@@ -80,7 +80,7 @@ namespace WHOfansite.Controllers
         }
 
         [HttpPost]
-        public ViewResult StoriesForm(SiteSubmissions guestSubmission)
+        public ViewResult StoriesForm(Story guestSubmission)
         {
             if (ModelState.IsValid)
             {

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WHOfansite.Models
 {
-    public class SiteSubmissions
+    public class Story
     {   
         [Required(ErrorMessage = "Please enter your username")]
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace WHOfansite.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Please enter a story(It IS why you're here after all)!")]
-        public string Story { get; set; }
+        public string StoryText { get; set; }
 
     }
 }

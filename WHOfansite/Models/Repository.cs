@@ -7,11 +7,11 @@ namespace WHOfansite.Models
     public static class Repository
     {
         
-        private static List<SiteSubmissions> submissions = new List<SiteSubmissions>();
+        private static List<Story> submissions = new List<Story>();
 
-        public static List<SiteSubmissions> Submissions { get { return submissions; } }
+        public static List<Story> Submissions { get { return submissions; } }
 
-        public static void AddSubmission(SiteSubmissions submission)
+        public static void AddSubmission(Story submission)
         {
             submissions.Add(submission);
         }
