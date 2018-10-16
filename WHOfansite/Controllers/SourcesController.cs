@@ -51,7 +51,7 @@ namespace WHOfansite.Controllers
         {
             ViewData["Message"] = "Books and print media about the person or persons";
 
-            List<Book> books = Book.Book;
+            List<Book> books = ;
             books.Sort((b1, b2) => b1.Title.CompareTo(b2.Title));
             return View(books);
         }
@@ -60,7 +60,7 @@ namespace WHOfansite.Controllers
         {
             ViewData["Message"] = "Links to online media about a person or persons";
 
-            List<Link> pageLinks = Link.PageLinks;
+            List<Link> pageLinks = ;
             pageLinks.Sort((b1, b2) => b1.PageTitle.CompareTo(b2.PageTitle));
             return View(pageLinks);
 

@@ -21,8 +21,8 @@ namespace WHOfansite.Controllers
                     Date = new DateTime(2018, 10, 6),
                     StoryText = "Start your story here"
                 };
-                Comment comment = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comment.Add(comment);
+                Comment comments = new Comment() { CommentText = "The best Doctor Who story ever!" };
+                Repository.AddComment(comments);
                 Repository.AddSubmission(story);
 
                 story = new Story()
@@ -32,7 +32,7 @@ namespace WHOfansite.Controllers
                     StoryText = "Start your story here"
                 };
                 Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment);
+                Repository.AddComment(comments);
                 Repository.AddSubmission(story);
 
                 story = new Story()
@@ -42,7 +42,7 @@ namespace WHOfansite.Controllers
                     StoryText = "Start your story here"
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment);
+                Repository.AddComment(comments);
                 Repository.AddSubmission(story);
 
             }
@@ -62,7 +62,7 @@ namespace WHOfansite.Controllers
             return View();
         }
 
-        public IActionResult Stories()
+        public IActionResult Story()
         {
             List<Story> submissions = Repository.Submissions;
             return View(submissions);

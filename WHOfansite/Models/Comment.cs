@@ -8,7 +8,7 @@ namespace WHOfansite.Models
     public class Comment
     {
         public string CommentorName { get; set; }
-        public Story CommentedStory { get; set; }
-        public Story CommentText { get; set; }
+        public string CommentedStory { get; set; }
+        public string CommentText { get; set; }
     }
 }
