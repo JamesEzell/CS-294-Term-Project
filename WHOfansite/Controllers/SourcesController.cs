@@ -11,7 +11,7 @@ namespace WHOfansite.Controllers
     {
         //add these lists to the repository
         Book books;
-        Links links;
+        Link links;
         
         public SourcesController()
         {
@@ -30,15 +30,15 @@ namespace WHOfansite.Controllers
                 PubDate = new DateTime(1997, 1, 1)
             });
 
-            List<Links> links = new List<Links>();
-            links.Add(new Links()
+            List<Link> links = new List<Link>();
+            links.Add(new Link()
             {
                 PageTitle = "The TARDIS Library",
                 PageUrl = "http://www.timelash.com/tardis/",
                 PageInfo = "Online hub for information and sales of Doctor Who merchandise in very medium imaginable",
             });
 
-            links.Add(new Links()
+            links.Add(new Link()
             {
                 PageTitle = "List of Doctor Who Serials from 1963-1989",
                 PageUrl = "https://en.wikipedia.org/wiki/List_of_Doctor_Who_episodes_(1963%E2%80%931989)",
@@ -51,7 +51,7 @@ namespace WHOfansite.Controllers
         {
             ViewData["Message"] = "Books and print media about the person or persons";
 
-            List<Book> books = Book.Books;
+            List<Book> books = Book.Book;
             books.Sort((b1, b2) => b1.Title.CompareTo(b2.Title));
             return View(books);
         }
@@ -60,7 +60,7 @@ namespace WHOfansite.Controllers
         {
             ViewData["Message"] = "Links to online media about a person or persons";
 
-            List<Links> pageLinks = Links.PageLinks;
+            List<Link> pageLinks = Link.PageLinks;
             pageLinks.Sort((b1, b2) => b1.PageTitle.CompareTo(b2.PageTitle));
             return View(pageLinks);
 
