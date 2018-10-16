@@ -1,4 +1,4 @@
-﻿@model List<WHOfansite.Models.Book>
+﻿@model List<Book>
 
 @{
     ViewData["Title"] = "Books";
@@ -13,11 +13,11 @@
 </head>
 <body>
     List of books:
-    @foreach (Book book in Model)
+    @foreach (Book books in Model)
     {
-        @book.Author; <br />
-        @book.Title; <br />
-        @book.PubDate; <br />
+        @books.Author; <br />
+        @books.Title; <br />
+        @books.PubDate; <br />
         <br />
         
     }
