@@ -8,7 +8,7 @@ namespace WHOfansite.Models
 {
     public class Story
     {   
-        [Required(ErrorMessage = "Please enter your username")]
+        [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]

@@ -1,4 +1,4 @@
-﻿@model WHOfansite.Models.Links
+﻿@model IEnumerable<WHOfansite.Models.Link>
 
 @{
     ViewData["Title"] = "Links";
@@ -13,11 +13,11 @@
 </head>
 <body>
     List of links:
-    @foreach (Links links in Model)
+    @foreach (Link l in Model)
     {
-        @links.PageTitle; <br />
-        @links.PageUrl; <br />
-        @links.PageInfo; <br />
+        @l.PageTitle; <br />
+        @l.PageUrl; <br />
+        @l.PageInfo; <br />
         <br />
 
     }

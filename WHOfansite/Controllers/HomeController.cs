@@ -22,7 +22,7 @@ namespace WHOfansite.Controllers
                     StoryText = "Start your story here"
                 };
                 Comment comment = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment);
+                story.Comment.Add(comment);
                 Repository.AddSubmission(story);
 
                 story = new Story()

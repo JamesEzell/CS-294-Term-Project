@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WHOfansite.Models
 {
-    public class Links
+    public class Link
     {
         public string PageTitle { get; set; }
         public string PageUrl { get; set; }
