@@ -66,17 +66,6 @@ namespace WHOfansite.Controllers
             return View(pageLinks);
 
         }
-        /*
-        [HttpPost]
-        public RedirectToActionResult AddBook(string title,
-                                              string author, string pubDate)
-        {
-            book = new Book();
-            book.Author = author;
-            book.Title = title;
-            book.PubDate = DateTime.Parse(pubDate);
-            
-            return RedirectToAction("Books");
-        }*/
+        
     }
 }

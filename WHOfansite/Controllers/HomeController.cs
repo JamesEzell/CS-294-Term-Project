@@ -62,10 +62,11 @@ namespace WHOfansite.Controllers
             return View();
         }
 
-        public IActionResult Story()
+        public IActionResult Stories()
         {
-            List<Story> submissions = Repository.Submissions;
-            return View(submissions);
+            //List<Story> submissions = Repository.Submissions;
+            //return View(submissions);
+            return View();
         }
 
         [HttpGet] //responding to a get request, will display messages

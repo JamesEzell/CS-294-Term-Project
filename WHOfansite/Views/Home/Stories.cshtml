@@ -1,7 +1,5 @@
-﻿@model List<Story>
-@{
-    Layout = null;
-}
+﻿@model List<WHOfansite.Models.Story>
+
 
 <!DOCTYPE html>
 <!--add a foreach loop for comments!-->>
@@ -25,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (WHOfansite.Models.Story r in Model)
+                @foreach (Story r in Model)
                 {
                     <tr>
                         <td>@r.Name</td>
