@@ -50,9 +50,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Index()
         {
-            List<Story> siteSubmissions = Repository.Submissions;
-            siteSubmissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
-            return View(siteSubmissions);
+            return View();
         }
 
         public IActionResult History()
@@ -65,6 +63,7 @@ namespace WHOfansite.Controllers
         public IActionResult Stories()
         {
             List<Story> submissions = Repository.Submissions;
+            submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             
         }
