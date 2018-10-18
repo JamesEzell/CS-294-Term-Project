@@ -66,7 +66,7 @@ namespace WHOfansite.Controllers
         {
             List<Story> submissions = Repository.Submissions;
             return View(submissions);
-            //return View();
+            
         }
 
         [HttpGet] //responding to a get request, will display messages
