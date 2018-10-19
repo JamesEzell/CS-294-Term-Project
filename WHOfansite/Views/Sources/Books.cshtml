@@ -14,10 +14,10 @@
 <body>
     @foreach (Book books in Model)
     {
-        @books.Author; <br />
-        @books.Title; <br />
-        @books.PubDate; <br />
-        <br />
+        <h1> @books.Title; </h1>
+          @books.Author; <br />
+          @books.PubDate; <br />
+          <br />
         
     }
     <br>

@@ -7,35 +7,20 @@ namespace WHOfansite.Models
     public static class Repository
     {
         public static List<Story> Submissions { get; } = new List<Story>();
-        public static List<Comment> Comments { get; } = new List<Comment>();
+        public static List<Story> Comments { get; } = new List<Story>();
         public static List<Book> Books { get; } = new List<Book>();
         public static List<Link> Links { get; } = new List<Link>();
 
 
-        public static void AddSubmission(Story submission)
-        {
-            Submissions.Add(submission);
-        }
+        public static void AddSubmission(Story submission) => Submissions.Add(submission);
 
-        public static void AddComment(Comment comment)
-        {
-            Comments.Add(comment);
-        }
+        public static void AddComment(Story comments) => Comments.Add(comments);
 
-        public static void AddBook(Book book)
-        {
-            Books.Add(book);
-        }
+        public static void AddBook(Book book) => Books.Add(book);
 
-        public static void AddLink(Link link)
-        {
-            Links.Add(link);
-        }
+        public static void AddLink(Link link) => Links.Add(link);
 
-        static Repository()
-        {
-            AddTestData();
-        }
+        static Repository() => AddTestData();
 
         static void AddTestData()
         {
@@ -79,32 +64,35 @@ namespace WHOfansite.Models
             {
                 story = new Story()
                 {
+                    Name = "Some Body",
                     Title = "The Caves of Androzani",
                     Date = new DateTime(2018, 10, 6),
                     StoryText = "Start your story here"
                 };
-                Comment comments = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
+                Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+                story.Comments.Add(comment0);
                 Repository.AddSubmission(story);
 
                 story = new Story()
                 {
+                    Name = "Morgan Blackhand",
                     Title = "Remembrance of the Daleks",
                     Date = new DateTime(2018, 10, 6),
                     StoryText = "Start your story here"
                 };
                 Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
+                story.Comments.Add(comment1);
                 Repository.AddSubmission(story);
 
                 story = new Story()
                 {
+                    Name = "Rache Bartmoss",
                     Title = "Robot",
                     Date = new DateTime(2018, 10, 6),
                     StoryText = "Start your story here"
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
+                story.Comments.Add(comment2);
                 Repository.AddSubmission(story);
 
             }

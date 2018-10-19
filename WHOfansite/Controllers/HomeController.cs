@@ -30,10 +30,6 @@ namespace WHOfansite.Controllers
             return View(submissions);
             
         }
-
-        [HttpGet] //responding to a get request, will display messages
-        public ViewResult StoriesForm() => View();
-
         
         public IActionResult Privacy()
         {
@@ -41,6 +37,12 @@ namespace WHOfansite.Controllers
 
             return View();
         }
+
+        [HttpGet] //responding to a get request, will display messages
+        public ViewResult StoriesForm() => View();
+
+        [HttpGet]
+        public ViewResult AddComment() => View();
 
         [HttpPost]
         public ViewResult StoriesForm(Story guestSubmission)
@@ -55,7 +57,21 @@ namespace WHOfansite.Controllers
                 return View();
             }
         }
-
+        
+        [HttpPost]
+        public ViewResult AddComment(Story comment)
+        {
+            if (ModelState.IsValid)
+            {
+                Repository.AddComment(comment);
+                return View("Thanks", comment);
+            }
+            else
+            {
+                return View();
+            }
+        }
+        
         public ViewResult ListSubmissions() => View(Repository.Submissions);
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -14,11 +14,10 @@
 <body>
     @foreach (Link l in Model)
     {
-        @l.PageTitle; <br />
-        @l.PageUrl; <br />
-        @l.PageInfo; <br />
-        <br />
-
+        <h1> @l.PageTitle; </h1> 
+          @l.PageUrl; <br />
+          @l.PageInfo; <br />
+          <br />
     }
     <br>
     <a href="/Home">Home</a>

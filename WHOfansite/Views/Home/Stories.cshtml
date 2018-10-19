@@ -1,5 +1,7 @@
 ﻿@model List<Story>
-
+@{
+    ViewData["Title"] = "Stories";
+}
 
 <!DOCTYPE html>
 
@@ -10,32 +12,33 @@
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <div class="panel-body">
-        <h2>Submitted stories</h2>
-        <table class="table table-sm table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Title</th>
-                    <th>Story</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Story r in Model)
-                {
-                    <tr>
-                        <td>@r.Name</td>
-                        <td>@r.Date</td>
-                        <td>@r.Title</td>
-                        <td>@r.StoryText</td>
-                    </tr>
-                }
-            </tbody>
-        </table>         
-    </div>
-    <a href="StoriesForm">Add your story</a><br />
-    <a href="/Home">Home</a>
+    <h1>Submitted stories</h1>
+    @foreach (Story r in Model)
+    {
+        <h2> @r.Title </h2>
+        @r.Name <br />
+        @r.Date <br />
+        @r.StoryText <br />
+        <br />
+        @if (r.Comments.Count > 0)
+        {
+            <h3>Story comments</h3>
+            @foreach (Comment c in r.Comments)
+            {
+                
+                <br />@c.CommentText <br />
+            }
+            <br />
+        }
+    }
+
+    <br />
+    <nav>
+        <br />
+        <a href="StoriesForm">Add your story</a><br />
+        <a href="AddComment">Add a comment to a story</a><br />
+        <a href="/Home">Home</a>
+    </nav>
 </body>
 </html>
 
