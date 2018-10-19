@@ -30,13 +30,6 @@ namespace WHOfansite.Controllers
             return View(submissions);
             
         }
-        
-        public IActionResult Privacy()
-        {
-            ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
-
-            return View();
-        }
 
         [HttpGet] //responding to a get request, will display messages
         public ViewResult StoriesForm() => View();
@@ -71,13 +64,18 @@ namespace WHOfansite.Controllers
                 return View();
             }
         }
-        
-        public ViewResult ListSubmissions() => View(Repository.Submissions);
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Privacy()
+        {
+            ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
+
+            return View();
         }
     }
 }
