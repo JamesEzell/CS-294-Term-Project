@@ -10,44 +10,7 @@ namespace WHOfansite.Controllers
 {
     public class HomeController : Controller
     {
-        Story story;
-        public HomeController()
-        {
-            if (Repository.Submissions.Count == 0)  
-            {
-                story = new Story()
-                {
-                    Title = "The Caves of Androzani",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comments = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
-                Repository.AddSubmission(story);
-
-                story = new Story()
-                {
-                    Title = "Remembrance of the Daleks",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
-                Repository.AddSubmission(story);
-
-                story = new Story()
-                {
-                    Title = "Robot",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                Repository.AddComment(comments);
-                Repository.AddSubmission(story);
-
-            }
-        }
-
+       
         public IActionResult Index()
         {
             return View();
