@@ -6,13 +6,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WHOfansite.Models
 {
-    public class SiteSubmissions
+    public class Story
     {
         private List<Comment> comments = new List<Comment>();
-        private List<Rate> ratings = new List<Rate>();
 
-
-        //[Required(ErrorMessage = "Please enter your username")]
+        [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
@@ -22,6 +20,9 @@ namespace WHOfansite.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Please enter a story(It IS why you're here after all)!")]
-        public string Story { get; set; }
+        public string StoryText { get; set; }
+
+        public List<Comment> Comments => comments;
+
     }
 }

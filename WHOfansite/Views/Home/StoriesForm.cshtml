@@ -1,7 +1,7 @@
-﻿@model WHOfansite.Models.SiteSubmissions
+﻿@model WHOfansite.Models.Story
 
 @{
-    Layout = null;
+    ViewData["Title"] = "StoriesForm";
 }
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>For your story</h4></div>
+        <div class="panel-heading text-center"><h4>Time to WOW us with your story</h4></div>
         <div class="panel-body">
             <form class="p-a-1" asp-action="StoriesForm" method="post">
                 <div asp-validation-summary="All"></div>
@@ -32,8 +32,8 @@
                     <input class="form-control" asp-for="Title" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Story">Your Story:</label>
-                    <input class="form-control" asp-for="Story" />
+                    <label asp-for="StoryText">Your Story:</label>
+                    <input class="form-control" asp-for="StoryText" />
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary" type="submit">

@@ -7,16 +7,7 @@ namespace WHOfansite.Models
 {
     public class User
     {
-        private List<SiteSubmissions> stories = new List<SiteSubmissions>();
-        private List<Rate> ratings = new List<Rate>();
-        private List<Comment> comments = new List<Comment>();
-
-
         public string Name { get; set; }
         public string Email { get; set; }
-        public List<SiteSubmissions> Stories { get { return stories; } }
-        public List<Rate> Ratings { get { return ratings; } }
-        public List<Comment> Comments { get { return comments; } }
-
     }
 }

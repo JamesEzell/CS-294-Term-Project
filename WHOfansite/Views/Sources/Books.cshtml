@@ -1,9 +1,27 @@
-﻿
+﻿@model List<Book>
+
 @{
     ViewData["Title"] = "Books";
 }
 
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this page to find books and print media about your subject</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books and Print Media</title>
+</head>
+<body>
+    @foreach (Book books in Model)
+    {
+        <h1> @books.Title </h1>
+          @books.Author; <br />
+          @books.PubDate; <br />
+          <br />
+        
+    }
+    <br>
+    <a href="/Home">Home</a>
+</body>
+</html>
+

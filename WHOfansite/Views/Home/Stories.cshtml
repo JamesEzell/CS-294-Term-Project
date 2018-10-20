@@ -1,27 +1,46 @@
-﻿@{
+﻿@model List<Story>
+@{
     ViewData["Title"] = "Stories";
 }
 
 <!DOCTYPE html>
 
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-
-
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Stories</title>
+    <title>Submissions So Far</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <p>
-        These are user submitted stories. Why not add your own?
-    </p>
-    <p>
-        Tell us about your favorite story <a asp-action="StoriesForm">now!</a>
-    </p>
+    <h1>Submitted stories</h1>
+    @foreach (Story r in Model)
+    {
+        <h2> @r.Title </h2>
+        @r.Name <br />
+        @r.Date <br />
+        @r.StoryText <br />
+        <br />
+        @if (r.Comments.Count > 0)
+        {
+            <h3>Story comments</h3>
+            @foreach (Comment c in r.Comments)
+            {
+                
+                <br />@c.CommentText <br />
+            }
+            <br />
+        }
+    }
+
+    <br />
+    <nav>
+        <br />
+        <a href="StoriesForm">Add your story</a><br />
+        <a href="AddComment">Add a comment to a story</a><br />
+        <a href="/Home">Home</a>
+    </nav>
 </body>
 </html>
+
 
 

@@ -10,21 +10,7 @@ namespace WHOfansite.Controllers
 {
     public class HomeController : Controller
     {
-        SiteSubmissions story;
-        public HomeController()
-        {
-            if (Repository.Submissions.Count == 0)  
-            {
-                story = new SiteSubmissions()
-                {
-                    Title = "The Caves of Androzani",
-                    Date = new DateTime(2018, 10, 6),
-                    Story = "Start your story here"
-                };
-                Repository.AddSubmission(story);
-            }
-        }
-
+       
         public IActionResult Index()
         {
             return View();
@@ -39,37 +25,20 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<SiteSubmissions> submissions = Repository.Submissions;
+            List<Story> submissions = Repository.Submissions;
+            submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
+            
         }
 
         [HttpGet] //responding to a get request, will display messages
         public ViewResult StoriesForm() => View();
 
-        [HttpPost]
-        public RedirectToActionResult AddSubmission(string name, string title, DateTime date, SiteSubmissions story)
-        {
-            story = new SiteSubmissions();
-            story.Name = name;
-            story.Date = date;
-            story.Title = title;
-            
-            Repository.AddSubmission(story);  
-
-
-            return RedirectToAction("Index");
-        }
-        
-
-        public IActionResult Privacy()
-        {
-            ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
-
-            return View();
-        }
+        [HttpGet]
+        public ViewResult AddComment() => View();
 
         [HttpPost]
-        public ViewResult StoriesForm(SiteSubmissions guestSubmission)
+        public ViewResult StoriesForm(Story guestSubmission)
         {
             if (ModelState.IsValid)
             {
@@ -81,13 +50,32 @@ namespace WHOfansite.Controllers
                 return View();
             }
         }
-
-        public ViewResult ListSubmissions() => View(Repository.Submissions);
+        
+        [HttpPost]
+        public ViewResult AddComment(Story comment)
+        {
+            if (ModelState.IsValid)
+            {
+                Repository.AddComment(comment);
+                return View("Thanks", comment);
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Privacy()
+        {
+            ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
+
+            return View();
         }
     }
 }

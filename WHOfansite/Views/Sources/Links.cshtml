@@ -1,9 +1,27 @@
-﻿
+﻿@model List<Link>
+
 @{
     ViewData["Title"] = "Links";
 }
 
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this page to navigate to online media sources about this person or persons</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Links to Online Media</title>
+</head>
+<body>
+    @foreach (Link l in Model)
+    {
+        <h1> @l.PageTitle </h1> 
+          @l.PageUrl; <br />
+          @l.PageInfo; <br />
+          <br />
+    }
+    <br>
+    <a href="/Home">Home</a>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+﻿@model WHOfansite.Models.Comment
+@{
+    ViewData["Title"] = "AddComment";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddComment</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Got something to say about a story?</h4></div>
+        <div class="panel-body">
+            <form class="p-a-1" asp-action="AddComment" method="post">
+                <div class="form-group">
+                    <label asp-for="CommentorName">Your name:</label>
+                    <input class="form-control" asp-for="CommentorName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CommentedStory">Story commenting on:</label>
+                    <input class="form-control" asp-for="CommentedStory" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CommentText">Your comment:</label>
+                    <input class="form-control" asp-for="CommentText" />
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">
+                        Submit Comment
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
