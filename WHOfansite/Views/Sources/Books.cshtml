@@ -1,8 +1,10 @@
 ﻿@model List<Book>
 
 @{
-    ViewData["Title"] = "Books";
+    Layout = "BookLayout";
+    ViewBag.Title = "Book Title and Author";
 }
+
 
 <h2>@ViewData["Title"]</h2>
 
@@ -21,7 +23,8 @@
         
     }
     <br>
-    <a href="/Home">Home</a>
+    <a href="/Home">Home</a><br />
+    <a href="/Sources/Links">The Links</a>
 </body>
 </html>
 

@@ -25,18 +25,18 @@
             <h3>Story comments</h3>
             @foreach (Comment c in r.Comments)
             {
-                
+
                 <br />@c.CommentText <br />
             }
             <br />
         }
+        <a asp-action="AddComment" asp-route-title="@r.Title">Add your voice</a>
     }
 
     <br />
     <nav>
         <br />
         <a href="StoriesForm">Add your story</a><br />
-        <a href="AddComment">Add a comment to a story</a><br />
         <a href="/Home">Home</a>
     </nav>
 </body>

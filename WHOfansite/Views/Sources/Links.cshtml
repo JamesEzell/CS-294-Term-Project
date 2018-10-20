@@ -1,7 +1,8 @@
 ﻿@model List<Link>
 
 @{
-    ViewData["Title"] = "Links";
+        Layout = "BookLayout";
+        ViewBag.Title = "Web Pages & Link URLs";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -14,13 +15,14 @@
 <body>
     @foreach (Link l in Model)
     {
-        <h1> @l.PageTitle </h1> 
-          @l.PageUrl; <br />
-          @l.PageInfo; <br />
-          <br />
+        <h1> @l.PageTitle </h1>
+        @l.PageUrl; <br />
+        @l.PageInfo; <br />
+        <br />
     }
     <br>
-    <a href="/Home">Home</a>
+    <a href="/Home">Home</a><br />
+    <a href="/Sources/Books">The Books</a>
 </body>
 </html>
 
