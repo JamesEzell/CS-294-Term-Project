@@ -14,7 +14,7 @@
     <title>Books and Print Media</title>
 </head>
 <body>
-    @foreach (Book books in Repository.Books)
+    @foreach (Book books in Model)
     {
         <h1> @books.Title </h1>
           @books.Author; <br />
