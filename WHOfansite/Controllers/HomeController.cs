@@ -54,15 +54,8 @@ namespace WHOfansite.Controllers
         [HttpPost]
         public ViewResult AddComment(Story comment)
         {
-            if (ModelState.IsValid)
-            {
-                Repository.AddComment(comment);
-                return View("Thanks", comment);
-            }
-            else
-            {
-                return View();
-            }
+            Repository.AddComment(comment);
+            return View("Thanks", comment);        
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
