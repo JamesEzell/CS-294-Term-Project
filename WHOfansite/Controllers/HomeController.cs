@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WHOfansite.Models;
+using WHOfansite.Repositories;
 
 namespace WHOfansite.Controllers
 {
@@ -25,7 +26,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<Story> submissions = BookAndLinkRepository.Submissions;
+            List<Story> submissions = FakeStoryRepository.Submissions;
             submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             
@@ -42,7 +43,7 @@ namespace WHOfansite.Controllers
         {
             if (ModelState.IsValid)
             {
-                BookAndLinkRepository.AddSubmission(guestSubmission);
+                FakeStoryRepository.AddSubmission(guestSubmission);
                 return View("Thanks", guestSubmission);
             }
             else
@@ -54,7 +55,7 @@ namespace WHOfansite.Controllers
         [HttpPost]
         public ViewResult AddComment(Story comment)
         {
-            BookAndLinkRepository.AddComment(comment);
+            FakeStoryRepository.AddComment(comment);
             return View("Thanks", comment);        
         }
 

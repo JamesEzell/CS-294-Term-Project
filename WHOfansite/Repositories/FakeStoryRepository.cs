@@ -5,7 +5,7 @@ using WHOfansite.Models;
 
 namespace WHOfansite.Repositories
 {
-    public static class FakeStoryRepository
+    public class FakeStoryRepository : IStoryRepositiory
     {
         public static List<Story> Submissions { get; } = new List<Story>();
         public static List<Story> Comments { get; } = new List<Story>();
