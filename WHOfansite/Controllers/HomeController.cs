@@ -26,7 +26,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<Story> submissions = FakeStoryRepository.Submissions;
+            List<Story> submissions = StoryRepository.Submissions;
             submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             
@@ -43,7 +43,7 @@ namespace WHOfansite.Controllers
         {
             if (ModelState.IsValid)
             {
-                FakeStoryRepository.AddSubmission(guestSubmission);
+                StoryRepository.AddSubmission(guestSubmission);
                 return View("Thanks", guestSubmission);
             }
             else
@@ -55,7 +55,7 @@ namespace WHOfansite.Controllers
         [HttpPost]
         public ViewResult AddComment(Story comment)
         {
-            FakeStoryRepository.AddComment(comment);
+            StoryRepository.AddComment(comment);
             return View("Thanks", comment);        
         }
 

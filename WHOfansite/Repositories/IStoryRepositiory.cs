@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using WHOfansite.Models;
 
 namespace WHOfansite.Repositories
 {
-    public class IStoryRepositiory
+    public interface IStoryRepositiory
     {
+        List<Story> Submissions { get; }
+        void AddSubmission(Story submission);
+
     }
 }

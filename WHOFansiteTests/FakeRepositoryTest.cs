@@ -3,7 +3,7 @@ using Xunit;
 
 namespace WHOFansiteTests
 {
-    public class SiteTest
+    public class FakeRepositoryTest
     {
         [Fact]
         public void Test1()

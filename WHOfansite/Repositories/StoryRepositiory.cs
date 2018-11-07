@@ -8,23 +8,26 @@ namespace WHOfansite.Repositories
 {
     public class StoryRepository : IStoryRepositiory
     {
-        public static List<Story> Submissions { get; } = new List<Story>();
-        public static List<Story> Comments { get; } = new List<Story>();
+        public  List<Story> submissions { get; } = new List<Story>();
+        public  List<Comment> comments { get; } = new List<Comment>();
 
+        public List<Story> Submissions => throw new NotImplementedException();
 
+        public void AddSubmission(Story submission) => submissions.Add(submission);
 
-        public static void AddSubmission(Story submission) => Submissions.Add(submission);
-
-        public static void AddComment(Story comments) => Comments.Add(comments);
+        public void AddComment(Comment comments) => comments.Add(comments);
         static StoryRepository() => AddTestData();
+
+        public StoryRepository()
+        {
+        }
 
         static void AddTestData()
         {
-            Story story;
+            
 
-            if (StoryRepository.Submissions.Count == 0)
-            {
-                story = new Story()
+           
+                Story story = new Story()
                 {
                     Name = "Some Body",
                     Title = "The Caves of Androzani",
@@ -32,8 +35,8 @@ namespace WHOfansite.Repositories
                     StoryText = "Start your story here"
                 };
                 Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment0);
-                StoryRepository.AddSubmission(story);
+                comments.Add(comment0);
+                submissions.Add(story);
 
                 story = new Story()
                 {
@@ -55,8 +58,8 @@ namespace WHOfansite.Repositories
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment2);
-                StoryRepository.AddSubmission(story);
-            }
+                Story.AddSubmission(story);
+            
         }
     }
 }
