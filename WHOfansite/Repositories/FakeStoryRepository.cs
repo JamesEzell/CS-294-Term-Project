@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using WHOfansite.Models;
 
 
-namespace WHOfansite.Models
+namespace WHOfansite.Repositories
 {
-    public static class BookAndLinkRepository
+    public static class FakeStoryRepository
     {
         public static List<Story> Submissions { get; } = new List<Story>();
         public static List<Story> Comments { get; } = new List<Story>();
@@ -14,13 +15,13 @@ namespace WHOfansite.Models
         public static void AddSubmission(Story submission) => Submissions.Add(submission);
 
         public static void AddComment(Story comments) => Comments.Add(comments);
-        static BookAndLinkRepository() => AddTestData();
+        static FakeStoryRepository() => AddTestData();
 
         static void AddTestData()
         {
             Story story;
 
-            if (BookAndLinkRepository.Submissions.Count == 0)
+            if (FakeStoryRepository.Submissions.Count == 0)
             {
                 story = new Story()
                 {
@@ -31,7 +32,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment0);
-                BookAndLinkRepository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
 
                 story = new Story()
                 {
@@ -42,7 +43,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment1);
-                BookAndLinkRepository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
 
                 story = new Story()
                 {
@@ -53,7 +54,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment2);
-                BookAndLinkRepository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
             }
         }
     }

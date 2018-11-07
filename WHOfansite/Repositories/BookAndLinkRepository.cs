@@ -6,20 +6,19 @@ namespace WHOfansite.Repositories
 {
     public class BookAndLinkRepository
     {
-        public static List<Book> Books { get; } = new List<Book>();
-        public static List<Link> Links { get; } = new List<Link>();
+        static List<Book> books = new List<Book>();
+        static List<Link> links = new List<Link>();
+        public static List<Book> Books => books;
+        public static List<Link> Links => links;
 
-        public static void AddBook(Book book) => Books.Add(book);
-        public static void AddLink(Link link) => Links.Add(link);
+        public static void AddBook(Book book) => books.Add(book);
+        public static void AddLink(Link link) => links.Add(link);
 
-        static BookAndLinkRepository() => AddTestData();
+        public BookAndLinkRepository() => AddTestData();
 
-        static void AddTestData()
-        {
-            Book book;
-            Link link;
-
-            book = (new Book()
+        void AddTestData()
+        { 
+           Book  book = (new Book()
             {
                 Author = "Marc Platt",
                 Title = "Lungbarrow",
@@ -35,7 +34,7 @@ namespace WHOfansite.Repositories
             });
             BookAndLinkRepository.AddBook(book);
 
-            link = (new Link()
+            Link link = (new Link()
             {
                 PageTitle = "The TARDIS Library",
                 PageUrl = "http://www.timelash.com/tardis/",
