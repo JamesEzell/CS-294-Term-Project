@@ -11,14 +11,14 @@ namespace WHOfansite.Controllers
     {
         public IActionResult Books()
         {
-            List<Book> books = Repository.Books;
+            List<Book> books = FakeStoryRepository.Books;
             books.Sort((b1, b2) => b1.Title.CompareTo(b2.Title));
             return View(books);
         }
 
         public IActionResult Links()
         { 
-            List<Link> pageLinks = Repository.Links;
+            List<Link> pageLinks = FakeStoryRepository.Links;
             pageLinks.Sort((b1, b2) => b1.PageTitle.CompareTo(b2.PageTitle));
             return View(pageLinks);
         }

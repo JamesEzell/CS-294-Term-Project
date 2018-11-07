@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WHOfansite.Models
 {
-    public static class Repository
+    public static class FakeStoryRepository
     {
         public static List<Story> Submissions { get; } = new List<Story>();
         public static List<Story> Comments { get; } = new List<Story>();
@@ -20,7 +20,7 @@ namespace WHOfansite.Models
 
         public static void AddLink(Link link) => Links.Add(link);
 
-        static Repository() => AddTestData();
+        static FakeStoryRepository() => AddTestData();
 
         static void AddTestData()
         {
@@ -34,7 +34,7 @@ namespace WHOfansite.Models
                 Title = "Lungbarrow",
                 PubDate = new DateTime(1997, 1, 1)
             });
-            Repository.AddBook(book);
+            FakeStoryRepository.AddBook(book);
 
             book = (new Book()
             {
@@ -42,7 +42,7 @@ namespace WHOfansite.Models
                 Title = "Head Games",
                 PubDate = new DateTime(1997, 1, 1)
             });
-            Repository.AddBook(book);
+            FakeStoryRepository.AddBook(book);
 
             link = (new Link()
             {
@@ -50,7 +50,7 @@ namespace WHOfansite.Models
                 PageUrl = "http://www.timelash.com/tardis/",
                 PageInfo = "Online hub for information and sales of Doctor Who merchandise in very medium imaginable",
             });
-            Repository.AddLink(link);
+            FakeStoryRepository.AddLink(link);
 
             link = (new Link()
             {
@@ -58,9 +58,9 @@ namespace WHOfansite.Models
                 PageUrl = "https://en.wikipedia.org/wiki/List_of_Doctor_Who_episodes_(1963%E2%80%931989)",
                 PageInfo = "Every serial from the show's first run, because it's the only run that matters",
             });
-            Repository.AddLink(link);
+            FakeStoryRepository.AddLink(link);
 
-            if (Repository.Submissions.Count == 0)
+            if (FakeStoryRepository.Submissions.Count == 0)
             {
                 story = new Story()
                 {
@@ -71,7 +71,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment0);
-                Repository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
 
                 story = new Story()
                 {
@@ -82,7 +82,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment1);
-                Repository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
 
                 story = new Story()
                 {
@@ -93,7 +93,7 @@ namespace WHOfansite.Models
                 };
                 Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
                 story.Comments.Add(comment2);
-                Repository.AddSubmission(story);
+                FakeStoryRepository.AddSubmission(story);
 
             }
         }
