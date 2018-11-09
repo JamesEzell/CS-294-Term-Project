@@ -6,14 +6,13 @@ namespace WHOfansite.Repositories
 {
     public class BookAndLinkRepository
     {
-        private static List<Book> books = new List<Book>();
-        private static List<Link> links = new List<Link>();
+        public static List<Link> Links { get; set; } = new List<Link>();
 
-        public static List<Link> Links { get => links; set => links = value; }
-        public static List<Book> Books { get => books; set => books = value; }
+        public static List<Book> Books { get; set; } = new List<Book>();
 
-        public static void AddBook(Book book) => books.Add(book);
-        public static void AddLink(Link link) => links.Add(link);
+        public static void AddBook(Book book) => Books.Add(book);
+
+        public static void AddLink(Link link) => Links.Add(link);
 
         public BookAndLinkRepository() => AddTestData();
 

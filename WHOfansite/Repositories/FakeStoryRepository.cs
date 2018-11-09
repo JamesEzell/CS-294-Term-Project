@@ -7,55 +7,57 @@ namespace WHOfansite.Repositories
 {
     public class FakeStoryRepository : IStoryRepositiory
     {
-        public static List<Story> Submissions { get; } = new List<Story>();
-        public static List<Story> Comments { get; } = new List<Story>();
-       
+        private List<Story> submissions = new List<Story>();
+
+        private List<Comment> comments = new List<Comment>();
+
+        public List<Story> Submissions { get { return submissions; } }
+
+        public List<Comment> Comments { get { return comments; } }
 
 
-        public static void AddSubmission(Story submission) => Submissions.Add(submission);
 
-        public static void AddComment(Story comments) => Comments.Add(comments);
-        static FakeStoryRepository() => AddTestData();
+        public void AddSubmission(Story submission) => submissions.Add(submission);
 
-        static void AddTestData()
+        public void AddComment(Comment comment) => comments.Add(comment);
+
+        public FakeStoryRepository() => AddTestData();
+
+        void AddTestData()
         {
-            Story story;
-
-            if (FakeStoryRepository.Submissions.Count == 0)
+            Story story = new Story()
             {
-                story = new Story()
-                {
-                    Name = "Some Body",
-                    Title = "The Caves of Androzani",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment0);
-                FakeStoryRepository.AddSubmission(story);
+                Name = "Some Body",
+                Title = "The Caves of Androzani",
+                Date = new DateTime(2018, 10, 6),
+                StoryText = "Start your story here"
+            };
+            Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+            AddComment(comment0);
+            AddSubmission(story);
 
-                story = new Story()
-                {
-                    Name = "Morgan Blackhand",
-                    Title = "Remembrance of the Daleks",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment1);
-                FakeStoryRepository.AddSubmission(story);
+            story = new Story()
+            {
+                Name = "Morgan Blackhand",
+                Title = "Remembrance of the Daleks",
+                Date = new DateTime(2018, 10, 6),
+                StoryText = "Start your story here"
+            };
+            Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+            AddComment(comment1);
+            AddSubmission(story);
 
-                story = new Story()
-                {
-                    Name = "Rache Bartmoss",
-                    Title = "Robot",
-                    Date = new DateTime(2018, 10, 6),
-                    StoryText = "Start your story here"
-                };
-                Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-                story.Comments.Add(comment2);
-                FakeStoryRepository.AddSubmission(story);
-            }
+            story = new Story()
+            {
+                Name = "Rache Bartmoss",
+                Title = "Robot",
+                Date = new DateTime(2018, 10, 6),
+                StoryText = "Start your story here"
+            };
+            Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
+            AddComment(comment2);
+            AddSubmission(story);
+            
         }
     }
 }

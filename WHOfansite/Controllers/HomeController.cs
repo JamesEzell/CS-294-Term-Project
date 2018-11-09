@@ -53,23 +53,11 @@ namespace WHOfansite.Controllers
         }
         
         [HttpPost]
-        public ViewResult AddComment(Story comment)
+        public ViewResult AddComment(Comment comment)
         {
             StoryRepository.AddComment(comment);
             return View("Thanks", comment);        
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult Privacy()
-        {
-            ViewData["Message"] = "Use this space to summarize your privacy and cookie use policy.";
-
-            return View();
-        }
     }
 }
