@@ -11,6 +11,12 @@ namespace WHOfansite.Controllers
 {
     public class HomeController : Controller
     {
+        IStoryRepository repo;
+
+        public HomeController(IStoryRepository r)
+        {
+            repo = r;
+        }
        
         public IActionResult Index()
         {
@@ -26,14 +32,14 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<Story> submissions = StoryRepository.Submissions;
+            List<Story> submissions = repo.Submissions;
             submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             
         }
 
-        [HttpGet] //responding to a get request, will display messages
-        public ViewResult StoriesForm() => View();
+        //[HttpGet] //responding to a get request, will display messages
+        public IActionResult StoriesForm() => View();
 
         [HttpGet]
         public ViewResult AddComment() => View();
@@ -43,7 +49,7 @@ namespace WHOfansite.Controllers
         {
             if (ModelState.IsValid)
             {
-                StoryRepository.AddSubmission(guestSubmission);
+                repo.AddSubmission(guestSubmission);
                 return View("Thanks", guestSubmission);
             }
             else
@@ -55,7 +61,7 @@ namespace WHOfansite.Controllers
         [HttpPost]
         public ViewResult AddComment(Comment comment)
         {
-            StoryRepository.AddComment(comment);
+            repo.AddComment(comment);
             return View("Thanks", comment);        
         }
 
