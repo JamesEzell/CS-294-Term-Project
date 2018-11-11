@@ -6,7 +6,7 @@ using WHOfansite.Models;
 
 namespace WHOfansite.Repositories
 {
-    public class repo : IStoryRepository
+    public class StoryRepository : IStoryRepository
     {
         private List<Story> submissions = new List<Story>();
 
@@ -21,7 +21,7 @@ namespace WHOfansite.Repositories
 
         public void AddComment(Comment comment) => comments.Add(comment);
 
-        public repo() => AddTestData();
+        public StoryRepository() => AddTestData();
 
         public Story GetStoryByTitle(string title)
         {

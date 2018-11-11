@@ -7,6 +7,8 @@ namespace WHOfansite.Repositories
     {
         List<Story> Submissions { get; }
 
+        List<Comment> Comments { get; }
+
         void AddSubmission(Story submission);
 
         void AddComment(Comment comment);

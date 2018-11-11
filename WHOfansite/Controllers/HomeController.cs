@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using WHOfansite.Models;
 using WHOfansite.Repositories;
@@ -13,15 +9,9 @@ namespace WHOfansite.Controllers
     {
         IStoryRepository repo;
 
-        public HomeController(IStoryRepository r)
-        {
-            repo = r;
-        }
-       
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public HomeController(IStoryRepository r) => repo = r;
+
+        public IActionResult Index() => View();
 
         public IActionResult History()
         {
@@ -38,11 +28,10 @@ namespace WHOfansite.Controllers
             
         }
 
-        //[HttpGet] //responding to a get request, will display messages
         public IActionResult StoriesForm() => View();
 
-        [HttpGet]
-        public ViewResult AddComment() => View();
+        
+        public IActionResult AddComment() => View();
 
         [HttpPost]
         public ViewResult StoriesForm(Story guestSubmission)
