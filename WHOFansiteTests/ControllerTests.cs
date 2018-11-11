@@ -1,4 +1,6 @@
 using Xunit;
+using WHOfansite.Models;
+using WHOfansite.Repositories;
 
 namespace WHOFansiteTests
 {
