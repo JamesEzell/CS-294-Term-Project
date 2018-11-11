@@ -7,8 +7,10 @@ namespace WHOfansite.Models
 {
     public class Comment
     {
-        public string CommentorName { get; set; }
-        public string CommentedStory { get; set; }
+        public int CommentID { get; set; }       // This will become the PK
+
+        public User Commentor { get; set; }
+
         public string CommentText { get; set; }
     }
 }

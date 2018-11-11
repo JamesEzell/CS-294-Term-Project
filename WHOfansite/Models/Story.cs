@@ -10,8 +10,7 @@ namespace WHOfansite.Models
     {
         private List<Comment> comments = new List<Comment>();
 
-        [Required(ErrorMessage = "Please enter your name")]
-        public string Name { get; set; }
+        public int StoryId { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }

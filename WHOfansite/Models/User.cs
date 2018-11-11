@@ -7,7 +7,18 @@ namespace WHOfansite.Models
 {
     public class User
     {
+        private List<Story> submissions = new List<Story>();
+        private List<Comment> comments = new List<Comment>();
+
+
+        public int UserID { get; set; }     // This will become the PK
+
         public string Name { get; set; }
+
         public string Email { get; set; }
+
+        public List<Story> Submissions { get { return submissions; } }
+
+        public List<Comment> Comments { get { return comments; } }
     }
 }

@@ -33,7 +33,6 @@ namespace WHOfansite.Repositories
         {
             Story story = new Story()
             {
-                Name = "Some Body",
                 Title = "The Caves of Androzani",
                 Date = new DateTime(2018, 10, 6),
                 StoryText = "Start your story here"
@@ -44,7 +43,6 @@ namespace WHOfansite.Repositories
 
             story = new Story()
             {
-                Name = "Morgan Blackhand",
                 Title = "Remembrance of the Daleks",
                 Date = new DateTime(2018, 10, 6),
                 StoryText = "Start your story here"
@@ -55,7 +53,6 @@ namespace WHOfansite.Repositories
 
             story = new Story()
             {
-                Name = "Rache Bartmoss",
                 Title = "Robot",
                 Date = new DateTime(2018, 10, 6),
                 StoryText = "Start your story here"
