@@ -23,7 +23,6 @@ namespace WHOfansite.Repositories
                     Date = DateTime.Parse("2/4/1978"),
                     StoryText = "Start your story here"
                 };
-                //submission.Comments.Add(comment);
                 context.Submissions.Add(submission);
 
                 Comment comment = new Comment
@@ -34,7 +33,7 @@ namespace WHOfansite.Repositories
                 };
                 context.Comments.Add(comment);
 
-                context.SaveChanges(); // save all the data
+                context.SaveChanges(); 
             }
         }
     }

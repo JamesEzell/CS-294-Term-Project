@@ -28,7 +28,7 @@ namespace WHOfansite.Controllers
             
         }
 
-        public IActionResult StoriesForm() => View();
+        public IActionResult StoriesForm(string guestSubmission) => View();
 
         
         public IActionResult AddComment() => View();
