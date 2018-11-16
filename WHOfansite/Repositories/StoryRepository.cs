@@ -1,66 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using WHOfansite.Models;
 using System.Linq;
-using System.Threading.Tasks;
-using WHOfansite.Models;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace WHOfansite.Repositories
 {
     public class StoryRepository : IStoryRepository
     {
-        private List<Story> submissions = new List<Story>();
+        private ApplicationDbContext context;
 
-        private List<Comment> comments = new List<Comment>();
+        public List<Story> Submissions
+        {
+            get
+            {
+                var submissions = context.Submissions;//.Include("Comments");
+                return submissions.ToList<Story>();
+            }
+        }
+
+        public List<Comment> Comments
+        {
+            get
+            {
+                var comments = context.Comments;
+                return comments.ToList<Comment>();
+            }
+        }
 
 
-        public List<Story> Submissions { get { return submissions; } }
+        public StoryRepository(ApplicationDbContext ctx)
+        {
+            context = ctx;
+        }
 
-        public List<Comment> Comments { get { return comments; } }
+        public void AddSubmission(Story submission)
+        {
+            context.Submissions.Update(submission);
+            context.SaveChanges();
+        }
 
-        public void AddSubmission(Story submission) => submissions.Add(submission);
 
-        public void AddComment(Comment comment) => comments.Add(comment);
-
-        public StoryRepository() => AddTestData();
+        public void AddComment(Comment comment)
+        {
+            context.Comments.Update(comment);
+            context.SaveChanges();
+        }
 
         public Story GetStoryByTitle(string title)
         {
-            Story submission = submissions.Find(s => s.Title == title);
+            Story submission = context.Submissions.First(s => s.Title == title);
             return submission;
-        }
-
-        void AddTestData()
-        {
-            Story story = new Story()
-            {
-                Title = "The Caves of Androzani",
-                Date = new DateTime(2018, 10, 6),
-                StoryText = "Start your story here"
-            };
-            Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment0);
-            AddSubmission(story);
-
-            story = new Story()
-            {
-                Title = "Remembrance of the Daleks",
-                Date = new DateTime(2018, 10, 6),
-                StoryText = "Start your story here"
-            };
-            Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment1);
-            AddSubmission(story);
-
-            story = new Story()
-            {
-                Title = "Robot",
-                Date = new DateTime(2018, 10, 6),
-                StoryText = "Start your story here"
-            };
-            Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment2);
-            AddSubmission(story);
-            
         }
     }
 }

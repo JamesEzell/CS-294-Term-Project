@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using WHOfansite.Models;
 using WHOfansite.Repositories;
@@ -28,10 +29,10 @@ namespace WHOfansite.Controllers
             
         }
 
-        public IActionResult StoriesForm(string guestSubmission) => View();
+        public IActionResult StoriesForm() => View();
 
         
-        public IActionResult AddComment() => View();
+        public IActionResult AddComment(string title) => View("Add Comment", HttpUtility.HtmlDecode(title));
 
         [HttpPost]
         public ViewResult StoriesForm(Story guestSubmission)
