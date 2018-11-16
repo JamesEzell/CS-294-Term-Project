@@ -8,9 +8,9 @@ namespace WHOfansite.Models
 {
     public class Story
     {
-        private List<Comment> comments = new List<Comment>();
-
         public int StoryId { get; set; }
+
+        private List<Comment> comments = new List<Comment>();
 
         [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }
