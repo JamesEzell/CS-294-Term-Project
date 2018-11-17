@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WHOfansite.Models;
 
 namespace WHOfansite.Repositories
 {
     public interface IStoryRepository
     {
-        List<Story> Submissions { get; }
+        IQueryable<Story> Submissions { get; }
 
-        List<Comment> Comments { get; }
+        IQueryable<Comment> Comments { get; }
 
         void AddSubmission(Story submission);
 

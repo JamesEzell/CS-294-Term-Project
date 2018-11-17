@@ -9,28 +9,14 @@ namespace WHOfansite.Repositories
     {
         private ApplicationDbContext context;
 
-        public List<Story> Submissions
-        {
-            get
-            {
-                var submissions = context.Submissions;//.Include("Comments");
-                return submissions.ToList<Story>();
-            }
-        }
+        public IQueryable<Story> Submissions => context.Submissions;// Include("Comments");
 
-        public List<Comment> Comments
-        {
-            get
-            {
-                var comments = context.Comments;
-                return comments.ToList<Comment>();
-            }
-        }
+        public IQueryable<Comment> Comments => context.Comments;
 
 
-        public StoryRepository(ApplicationDbContext ctx)
+        public StoryRepository(ApplicationDbContext applicationDbContext)
         {
-            context = ctx;
+            context = applicationDbContext;
         }
 
         public void AddSubmission(Story submission)

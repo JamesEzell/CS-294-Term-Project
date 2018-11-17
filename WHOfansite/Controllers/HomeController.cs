@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using WHOfansite.Models;
@@ -23,7 +24,7 @@ namespace WHOfansite.Controllers
 
         public IActionResult Stories()
         {
-            List<Story> submissions = repo.Submissions;
+            List<Story> submissions = repo.Submissions.ToList();
             submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             

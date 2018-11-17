@@ -21,6 +21,6 @@ namespace WHOfansite.Models
         [Required(ErrorMessage = "Please enter a story(It IS why you're here after all)!")]
         public string StoryText { get; set; }
 
-        public List<Comment> Comments { get { return comments; } }
+        public ICollection<Comment> Comments { get { return comments; } }
     }
 }

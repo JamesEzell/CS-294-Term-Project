@@ -17,8 +17,8 @@ namespace WHOfansite.Models
 
         public string Email { get; set; }
 
-        public List<Story> Submissions { get { return submissions; } }
+        public ICollection<Story> Submissions { get { return submissions; } }
 
-        public List<Comment> Comments { get { return comments; } }
+        public ICollection<Comment> Comments { get { return comments; } }
     }
 }

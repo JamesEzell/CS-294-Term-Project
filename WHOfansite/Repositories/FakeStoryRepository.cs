@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WHOfansite.Models;
+
 
 
 namespace WHOfansite.Repositories
@@ -11,9 +13,9 @@ namespace WHOfansite.Repositories
 
         private List<Comment> comments = new List<Comment>();
 
-        public List<Story> Submissions { get { return submissions; } }
+        public IQueryable<Story> Submissions { get { return (IQueryable<Story>)submissions; } }
 
-        public List<Comment> Comments { get { return comments; } }
+        public IQueryable<Comment> Comments { get { return (IQueryable<Comment>) comments; } }
 
 
 
