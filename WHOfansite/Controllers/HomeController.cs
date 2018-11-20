@@ -33,7 +33,7 @@ namespace WHOfansite.Controllers
         public IActionResult StoriesForm() => View();
 
         
-        public IActionResult AddComment(string title) => View("Add Comment", HttpUtility.HtmlDecode(title));
+        public IActionResult AddComment() => View();
 
         [HttpPost]
         public ViewResult StoriesForm(Story guestSubmission)
