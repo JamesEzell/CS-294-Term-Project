@@ -12,7 +12,7 @@ namespace WHOfansite.Repositories
 
         void AddSubmission(Story submission);
 
-        void AddComment(Comment comment);
+        void AddComment(Story submission, Comment comment);
 
         Story GetStoryByTitle(string title);
 

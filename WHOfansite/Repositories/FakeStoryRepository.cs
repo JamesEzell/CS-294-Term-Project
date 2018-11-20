@@ -21,7 +21,7 @@ namespace WHOfansite.Repositories
 
         public void AddSubmission(Story submission) => submissions.Add(submission);
 
-        public void AddComment(Comment comment) => comments.Add(comment);
+        public void AddComment(Story submission, Comment comment) => comments.Add(comment);
 
         public FakeStoryRepository() => AddTestData();
 
@@ -40,7 +40,7 @@ namespace WHOfansite.Repositories
                 StoryText = "Start your story here"
             };
             Comment comment0 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment0);
+            AddComment(story, comment0);
             AddSubmission(story);
 
             story = new Story()
@@ -50,7 +50,7 @@ namespace WHOfansite.Repositories
                 StoryText = "Start your story here"
             };
             Comment comment1 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment1);
+            AddComment(story, comment1);
             AddSubmission(story);
 
             story = new Story()
@@ -60,7 +60,7 @@ namespace WHOfansite.Repositories
                 StoryText = "Start your story here"
             };
             Comment comment2 = new Comment() { CommentText = "The best Doctor Who story ever!" };
-            AddComment(comment2);
+            AddComment(story, comment2);
             AddSubmission(story);
             
         }

@@ -26,8 +26,9 @@ namespace WHOfansite.Repositories
         }
 
 
-        public void AddComment(Comment comment)
+        public void AddComment(Story submission, Comment comment)
         {
+            submission.Comments.Add(comment);
             context.Comments.Update(comment);
             context.SaveChanges();
         }

@@ -31,6 +31,7 @@ namespace WHOfansite.Repositories
                     CommentText = "The best Doctor Who story ever!",
 
                 };
+                submission.Comments.Add(comment);
                 context.Comments.Add(comment);
 
                 context.SaveChanges(); 
