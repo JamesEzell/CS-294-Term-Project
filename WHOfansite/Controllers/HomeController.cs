@@ -50,9 +50,9 @@ namespace WHOfansite.Controllers
         }
         
         [HttpPost]
-        public ViewResult AddComment(Comment comment)
+        public ViewResult AddComment(Story submission, Comment comment)
         {
-            repo.AddComment(comment);
+            repo.AddComment(submission, comment);
             return View("Thanks", comment);        
         }
 
