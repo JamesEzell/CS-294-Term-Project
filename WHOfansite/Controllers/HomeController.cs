@@ -25,6 +25,7 @@ namespace WHOfansite.Controllers
         public IActionResult Stories()
         {
             List<Story> submissions = repo.Submissions.ToList();
+            List<Comment> comments = repo.Comments.ToList();
             submissions.Sort((s1, s2) => s1.Title.CompareTo(s2.Title));
             return View(submissions);
             
