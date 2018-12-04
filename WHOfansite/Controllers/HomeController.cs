@@ -31,6 +31,14 @@ namespace WHOfansite.Controllers
             
         }
 
+        public IActionResult Stories(string title)
+        {
+            List<Story> submissions = (from b in repo.Submissions
+                                       where b.Title == title
+                                       select b).ToList();
+            return View(submissions);
+        }
+
         public IActionResult StoriesForm() => View();
 
         
