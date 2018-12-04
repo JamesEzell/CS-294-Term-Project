@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
@@ -31,11 +32,21 @@ namespace WHOfansite.Controllers
             
         }
 
+        [HttpPost]
         public IActionResult Stories(string title)
         {
-            List<Story> submissions = (from b in repo.Submissions
-                                       where b.Title == title
-                                       select b).ToList();
+            List<Story> submissions = (from s in repo.Submissions
+                                       where s.Title == title
+                                       select s).ToList();
+            return View(submissions);
+        }
+
+        [HttpPost]
+        public IActionResult Stories(DateTime date)
+        {
+            List<Story> submissions = (from s in repo.Submissions
+                                       where s.Date == date
+                                       select s).ToList();
             return View(submissions);
         }
 
@@ -61,8 +72,15 @@ namespace WHOfansite.Controllers
         [HttpPost]
         public ViewResult AddComment(Story submission, Comment comment)
         {
-            repo.AddComment(submission, comment);
-            return View("Thanks", comment);        
+            if (ModelState.IsValid)
+            {
+                repo.AddComment(submission, comment);
+                return View("Thanks", comment);
+            }
+            else
+            {
+                return View();
+            }  
         }
 
     }

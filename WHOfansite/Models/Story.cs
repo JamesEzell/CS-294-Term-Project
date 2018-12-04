@@ -15,6 +15,7 @@ namespace WHOfansite.Models
         [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }
 
+        [StringLength(75, MinimumLength = 3)]
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
 
