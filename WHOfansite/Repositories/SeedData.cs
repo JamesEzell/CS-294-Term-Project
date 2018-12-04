@@ -34,6 +34,30 @@ namespace WHOfansite.Repositories
                 submission.Comments.Add(comment);
                 context.Comments.Add(comment);
 
+                Story submission1 = new Story
+                {
+                    Title = "The Caves of Androzani",
+                    Date = DateTime.Parse("3/8/1984"),
+                    StoryText = "Start your story here"
+                };
+                context.Submissions.Add(submission1);
+
+                Story submission2 = new Story
+                {
+                    Title = "The Pirate Planet",
+                    Date = DateTime.Parse("9/30/1978"),
+                    StoryText = "Start your story here"
+                };
+                context.Submissions.Add(submission2);
+
+                Story submission3 = new Story
+                {
+                    Title = "The Twin Dilemma",
+                    Date = DateTime.Parse("3/22/1984"),
+                    StoryText = "Start your story here"
+                };
+                context.Submissions.Add(submission3);
+
                 context.SaveChanges(); 
             }
         }
