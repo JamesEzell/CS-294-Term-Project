@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.InteropServices;
 using WHOfansite.Models;
 using WHOfansite.Repositories;
 
@@ -19,9 +21,7 @@ namespace WHOfansite
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
-            Configuration["Data:WHOFanSite:ConnectionString"]));
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            Configuration["Data:WHOfanSite:ConnectionString"]));
             services.AddTransient<IStoryRepository, StoryRepository>();
             services.AddMvc();
         }
