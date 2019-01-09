@@ -45,7 +45,7 @@ namespace WHOfansite.Repositories
                 Story submission2 = new Story
                 {
                     Title = "The Pirate Planet",
-                    Date = DateTime.Parse("9/30/1978"),
+                    Date = DateTime.Parse("30/9/1978"),
                     StoryText = "Start your story here"
                 };
                 context.Submissions.Add(submission2);
@@ -53,7 +53,7 @@ namespace WHOfansite.Repositories
                 Story submission3 = new Story
                 {
                     Title = "The Twin Dilemma",
-                    Date = DateTime.Parse("3/22/1984"),
+                    Date = DateTime.Parse("22/3/1984"),
                     StoryText = "Start your story here"
                 };
                 context.Submissions.Add(submission3);
