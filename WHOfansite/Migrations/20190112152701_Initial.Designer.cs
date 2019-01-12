@@ -10,8 +10,8 @@ using WHOfansite.Models;
 namespace WHOfansite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190112062744_Identity")]
-    partial class Identity
+    [Migration("20190112152701_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
