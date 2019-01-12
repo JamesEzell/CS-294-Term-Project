@@ -14,7 +14,7 @@ namespace WHOfansite.Repositories
             context.Database.EnsureCreated();
             if (!context.Submissions.Any())
             {
-                User user = new User { Name = "Issac Ishimura" };
+                User user = new User { FirstName = "Issac", LastName = "Ishimura" };
                 context.Users.Add(user);
 
                 Story submission = new Story
