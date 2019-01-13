@@ -22,7 +22,7 @@ namespace WHOfansite.Controllers
             return View();
         }
 
-        public ViewResult ShowAccounts()
+        public ViewResult ShowUsers()
         {
             return View(userManager.Users);
         }
@@ -58,6 +58,7 @@ namespace WHOfansite.Controllers
             }
             return View(model);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
