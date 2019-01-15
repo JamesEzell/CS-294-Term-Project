@@ -8,18 +8,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WHOfansite.Controllers
 {
-    public class AuthController : Controller
+    public class AdminController : Controller
     {
         private UserManager<User> userManager;
 
-        public AuthController(UserManager<User> um)
+        public AdminController(UserManager<User> usrMgr)
         {
-            userManager = um;
+            userManager = usrMgr;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(userManager.Users);
         }
 
         public ViewResult ShowUsers()
@@ -27,10 +27,10 @@ namespace WHOfansite.Controllers
             return View(userManager.Users);
         }
 
-        public ViewResult CreateUser() => View();
+        public ViewResult Create() => View();
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser(UserViewModel model)
+        public async Task<IActionResult> Create(UserViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace WHOfansite.Controllers
                     }
                 }
             }
-            return View(model);
+            return View("Index", userManager.Users);
         }
 
 
