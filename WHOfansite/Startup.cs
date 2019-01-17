@@ -61,6 +61,8 @@ namespace WHOfansite
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices,Configuration).Wait();
+
             SeedData.Seed(app);
         }
     }
