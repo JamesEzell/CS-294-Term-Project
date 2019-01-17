@@ -15,7 +15,7 @@ namespace WHOfansite.Controllers
 
         public HomeController(IStoryRepository r) => repo = r;
 
-        [Authorize]
+        
         public IActionResult Index() => View();
 
         public IActionResult History()
