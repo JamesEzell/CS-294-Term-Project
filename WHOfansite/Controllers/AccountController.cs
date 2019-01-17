@@ -60,7 +60,7 @@ namespace Users.Controllers
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
-            return View();
+            return View("Denied");
         }
 
     }
