@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WHOfansite.Models;
 using WHOfansite.Repositories;
@@ -14,6 +15,7 @@ namespace WHOfansite.Controllers
 
         public HomeController(IStoryRepository r) => repo = r;
 
+        [Authorize]
         public IActionResult Index() => View();
 
         public IActionResult History()
