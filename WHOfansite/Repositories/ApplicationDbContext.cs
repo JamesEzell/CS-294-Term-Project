@@ -35,8 +35,7 @@ namespace WHOfansite.Models
                     UserName = username,
                     Email = email
                 };
-                IdentityResult result = await userManager
-                .CreateAsync(user, password);
+                IdentityResult result = await userManager.CreateAsync(user, password);
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(user, role);
