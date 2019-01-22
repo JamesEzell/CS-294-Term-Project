@@ -62,6 +62,7 @@ namespace WHOfansite
             });
 
             ApplicationDbContext.CreateAdminAccount(app.ApplicationServices,Configuration).Wait();
+            ApplicationDbContext.CreateUserAccount(app.ApplicationServices, Configuration).Wait();
 
             SeedData.Seed(app);
         }
