@@ -20,6 +20,12 @@
     <p>
         <a class="btn btn-primary" asp-action="History">Start your journey here</a>
     </p>
-   
+
+    @if (User?.Identity?.IsAuthenticated ?? false)
+     {
+        <a asp-controller="Account" asp-action="Logout"
+           class="btn btn-danger">Logout</a>
+     }
 </body>
+
 </html>
