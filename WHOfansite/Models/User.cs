@@ -12,7 +12,7 @@ namespace WHOfansite.Models
         private List<Comment> comments = new List<Comment>();
 
 
-        public int UserID { get; set; }
+        //public int UserID { get; set; }
 
         public string FirstName { get; set; }
 
