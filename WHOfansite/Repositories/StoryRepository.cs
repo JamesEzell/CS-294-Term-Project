@@ -35,8 +35,7 @@ namespace WHOfansite.Repositories
 
         public Story GetStoryByTitle(string title)
         {
-            Story submission = context.Submissions.First(s => s.Title == title);
-            return submission;
+            return context.Submissions.First(s => s.Title == title);
         }
     }
 }
