@@ -22,7 +22,7 @@ namespace WHOfansite
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
-            Configuration["Data:ConnectionString"]));
+            Configuration["ConnectionStrings:ConnectionString"]));
 
             services.AddIdentity<User, IdentityRole>(opts => {
                 opts.Password.RequiredLength = 6;

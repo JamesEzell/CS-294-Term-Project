@@ -14,20 +14,11 @@ namespace WHOfansite.Controllers
     {
         private UserManager<User> userManager;
 
-        public AdminController(UserManager<User> usrMgr)
-        {
-            userManager = usrMgr;
-        }
+        public AdminController(UserManager<User> usrMgr) => userManager = usrMgr;
 
-        public IActionResult Index()
-        {
-            return View(userManager.Users);
-        }
+        public IActionResult Index() => View(userManager.Users);
 
-        public ViewResult ShowUsers()
-        {
-            return View(userManager.Users);
-        }
+        public ViewResult ShowUsers() => View(userManager.Users);
 
         public ViewResult Create() => View();
 
