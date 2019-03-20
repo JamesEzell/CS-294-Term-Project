@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.InteropServices;
 using WHOfansite.Models;
 using WHOfansite.Repositories;
+using System;
 
 namespace WHOfansite
 {
@@ -20,10 +21,16 @@ namespace WHOfansite
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(
-            Configuration["Data:ConnectionString"]));
 
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_MEMDB")?.ToLower() == "true")
+            {
+                services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:ConnectionString"]));
+            }
+            
             services.AddIdentity<User, IdentityRole>(opts => {
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
